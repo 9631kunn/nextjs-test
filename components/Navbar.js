@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Navbar = () => (
   <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div className="container">
@@ -24,19 +26,19 @@ const Navbar = () => (
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              About
-            </a>
+            <Link href="/about">
+              <a className="nav-link">About</a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              Services
-            </a>
+            <Link href="/services">
+              <a className="nav-link">Services</a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              Contact
-            </a>
+            <Link href="/contact">
+              <a className="nav-link">Contact</a>
+            </Link>
           </li>
         </ul>
       </div>
