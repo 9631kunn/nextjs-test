@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Head from "next/head";
 
 import Navbar from "../components/Navbar";
@@ -9,7 +10,15 @@ import Footer from "../components/Footer";
 import { getMovies } from "../actions";
 
 const Home = () => {
-  const movies = getMovies();
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const resMovies = await getMovies();
+      setMovies(resMovies);
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="home">
@@ -47,7 +56,12 @@ const Home = () => {
             <div className="col-lg-9">
               <Carousel />
               <div className="row">
-                <Cards movies={movies} />
+                {!movies.length && (
+                  <div className="alert alert-danger" role="alert">
+                    This is a danger alert—check it out!
+                  </div>
+                )}
+                {!!movies.length && <Cards movies={movies} />}
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
 const shorten = (text) => {
-  if (!text || text.length < 200) return;
+  if (!text || text.length < 200) return text;
   return text.substr(0, 200) + "...";
 };
 

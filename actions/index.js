@@ -35,5 +35,8 @@ const data = [
 ];
 
 export const getMovies = () => {
-  return data;
+  return new Promise((resolve, reject) => {
+    resolve(data);
+    reject("Oops!");
+  });
 };
